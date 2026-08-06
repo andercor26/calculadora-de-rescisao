@@ -34,7 +34,7 @@ export const CALCULADORAS: CalculadoraMeta[] = [
     slug: "/ferias",
     titulo: "Calculadora de Férias",
     tituloCurto: "Férias",
-    descricao: "Valor das férias com 1/3 constitucional e abono pecuniário.",
+    descricao: "Valor das férias com 1/3 constitucional e venda de férias.",
   },
   {
     slug: "/rescisao-domestica",

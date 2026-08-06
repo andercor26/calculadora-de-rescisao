@@ -9,14 +9,14 @@ import { SiteHeader } from "@/components/SiteHeader";
 export const metadata: Metadata = {
   title: "Calculadora de Férias — Calculadora do Trabalhador",
   description:
-    "Calcule o valor das suas férias com o terço constitucional, incluindo abono pecuniário e adiantamento do 13º salário.",
+    "Calcule o valor das suas férias com o terço constitucional, incluindo venda de férias e adiantamento do 13º salário.",
 };
 
 const PERGUNTAS = [
   {
-    pergunta: "O que é o abono pecuniário?",
+    pergunta: "O que é a venda de férias?",
     resposta:
-      "É a possibilidade de vender até 1/3 (10 dias) das suas férias para a empresa, recebendo em dinheiro em vez de folga. É uma escolha sua — a empresa não pode obrigar nem recusar, se solicitado no prazo.",
+      "É a possibilidade de vender até 1/3 (10 dias) das suas férias para a empresa (também chamada de abono pecuniário), recebendo em dinheiro em vez de folga. É uma escolha sua — a empresa não pode obrigar nem recusar, se solicitado no prazo.",
   },
   {
     pergunta: "Posso adiantar o 13º salário nas férias?",

@@ -41,7 +41,7 @@ export function calcularFerias(dados: DadosFerias): ResultadoFerias {
   const diasGozar = Math.min(30 - diasVender, Math.max(0, dados.diasGozar || 0));
 
   if (dados.diasVender > 10) {
-    avisos.push("O abono pecuniário (venda de férias) é limitado a 10 dias, um terço do período.");
+    avisos.push("A venda de férias é limitada a 10 dias, um terço do período.");
   }
   if (dados.diasGozar + dados.diasVender > 30) {
     avisos.push("A soma de dias tirados e vendidos não pode ultrapassar 30 dias.");

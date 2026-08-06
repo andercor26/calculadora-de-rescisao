@@ -33,7 +33,7 @@ export function CalculadoraFerias() {
             Simule suas férias
           </h2>
           <p className="mt-3 text-ink-muted">
-            Inclua o abono pecuniário e o adiantamento do 13º se for o seu
+            Inclua a venda de férias e o adiantamento do 13º se for o seu
             caso.
           </p>
         </div>
