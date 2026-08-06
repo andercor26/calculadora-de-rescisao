@@ -123,13 +123,13 @@ export function CalculadoraFerias() {
                         ? [
                             {
                               id: "abono",
-                              label: "Abono pecuniário",
+                              label: "Venda de férias",
                               detalhe: `${resultado.diasVender} dia(s) vendido(s)`,
                               valor: resultado.valorAbono,
                             },
                             {
                               id: "terco_abono",
-                              label: "Terço sobre o abono",
+                              label: "Terço sobre a venda de férias",
                               valor: resultado.tercoAbono,
                             },
                           ]
