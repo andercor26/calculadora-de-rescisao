@@ -201,21 +201,26 @@ export function Calculadora() {
             )}
 
             <div>
-              <label className={labelClass} htmlFor="ferias">
-                Períodos de férias vencidas
-              </label>
-              <select
-                id="ferias"
-                className={inputClass}
-                value={dados.periodosFeriasVencidas}
-                onChange={(e) => atualizar("periodosFeriasVencidas", Number(e.target.value))}
-              >
-                {[0, 1, 2, 3].map((n) => (
-                  <option key={n} value={n}>
-                    {n === 0 ? "Nenhum" : n}
-                  </option>
+              <span className={labelClass}>Tinha férias vencidas?</span>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { valor: true, label: "Sim" },
+                  { valor: false, label: "Não" },
+                ].map((op) => (
+                  <button
+                    key={String(op.valor)}
+                    type="button"
+                    onClick={() => atualizar("periodosFeriasVencidas", op.valor ? 1 : 0)}
+                    className={`rounded-lg border px-4 py-3 text-sm font-medium transition ${
+                      (dados.periodosFeriasVencidas > 0) === op.valor
+                        ? "border-navy-950 bg-navy-950 text-white"
+                        : "border-line bg-white text-ink-muted hover:border-navy-950/40"
+                    }`}
+                  >
+                    {op.label}
+                  </button>
                 ))}
-              </select>
+              </div>
             </div>
           </form>
 
