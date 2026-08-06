@@ -21,7 +21,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Recibo Certo — Calculadora de Rescisão Trabalhista",
+  title: "Calculadora do Trabalhador — Estimativa de Rescisão Trabalhista",
   description:
     "Calcule uma estimativa da sua rescisão trabalhista em minutos: saldo de salário, aviso prévio, 13º, férias e FGTS, conforme a CLT.",
 };

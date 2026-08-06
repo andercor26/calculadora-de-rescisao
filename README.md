@@ -1,4 +1,4 @@
-# Recibo Certo — Calculadora de Rescisão Trabalhista
+# Calculadora do Trabalhador
 
 Landing page com uma calculadora de rescisão trabalhista (CLT) para
 trabalhadores brasileiros. O usuário preenche salário, datas de

@@ -7,7 +7,7 @@ export function SiteFooter() {
             <div className="flex items-center gap-2">
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-red-600" />
               <span className="font-display text-lg font-semibold text-white">
-                Recibo Certo
+                Calculadora do Trabalhador
               </span>
             </div>
             <p className="mt-2 max-w-sm text-sm leading-relaxed">
@@ -30,7 +30,7 @@ export function SiteFooter() {
         </div>
 
         <p className="mt-10 border-t border-white/10 pt-6 text-xs leading-relaxed">
-          Recibo Certo não é um escritório de advocacia e os resultados
+          Calculadora do Trabalhador não é um escritório de advocacia e os resultados
           apresentados são estimativas para fins informativos, sem valor
           jurídico ou substituição de aconselhamento profissional
           individualizado.
