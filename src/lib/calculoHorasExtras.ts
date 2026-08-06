@@ -23,7 +23,7 @@ export function calcularHorasExtras(dados: DadosHorasExtras): ResultadoHorasExtr
   const carga = dados.cargaHorariaMensal || 220;
 
   const avisos = [
-    "Convenções ou acordos coletivos da sua categoria podem prever adicional maior que 50%/100% ou uma jornada mensal diferente de 220h — verifique seu contrato ou sindicato.",
+    "Convenções ou acordos coletivos da sua categoria podem prever adicional maior que 50%/100% ou uma jornada mensal diferente de 220h. Verifique seu contrato ou sindicato.",
   ];
 
   if (salario <= 0) {

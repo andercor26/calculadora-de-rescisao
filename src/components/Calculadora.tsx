@@ -45,7 +45,7 @@ export function Calculadora() {
           </h2>
           <p className="mt-3 text-ink-muted">
             Os valores são recalculados a cada campo preenchido. Nenhuma
-            informação é enviada ou armazenada — o cálculo acontece no seu
+            informação é enviada ou armazenada: o cálculo acontece no seu
             navegador.
           </p>
         </div>

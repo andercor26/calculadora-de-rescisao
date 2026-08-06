@@ -1,6 +1,6 @@
 // Cálculo estimado de salário líquido (INSS + IRRF), tabelas de referência 2026.
 // IRRF conforme a Lei 15.191/2025 (tabela) e a Lei 15.270/2025 (redutor/isenção até R$ 5.000).
-// As tabelas são reajustadas por lei — confirme o valor exato com o RH ou a Receita Federal.
+// As tabelas são reajustadas por lei. Confirme o valor exato com o RH ou a Receita Federal.
 
 export interface DadosSalarioLiquido {
   salarioBruto: number;
@@ -75,7 +75,7 @@ function calcularRedutor(rendimentoBruto: number): number {
 export function calcularSalarioLiquido(dados: DadosSalarioLiquido): ResultadoSalarioLiquido {
   const bruto = Math.max(0, dados.salarioBruto || 0);
   const avisos = [
-    "Tabelas de referência 2026 (INSS e IRRF, incluindo a isenção/redutor da Lei 15.270/2025). Ambas são reajustadas por lei — confirme os valores vigentes com o RH ou a Receita Federal.",
+    "Tabelas de referência 2026 (INSS e IRRF, incluindo a isenção/redutor da Lei 15.270/2025). Ambas são reajustadas por lei. Confirme os valores vigentes com o RH ou a Receita Federal.",
   ];
 
   if (bruto <= 0) {

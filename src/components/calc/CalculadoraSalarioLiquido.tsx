@@ -133,7 +133,7 @@ export function CalculadoraSalarioLiquido() {
                             : null,
                         ]
                           .filter(Boolean)
-                          .join(" — "),
+                          .join(", "),
                         valor: resultado.descontoIRRF,
                         negativo: true,
                       },

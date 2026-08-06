@@ -23,9 +23,9 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-md text-lg leading-relaxed text-white/70">
-            Preencha os dados do seu contrato e veja, em tempo real, uma
-            estimativa detalhada de saldo de salário, aviso prévio, 13º,
-            férias e FGTS — considerando se foi justa causa e se você tinha
+            Esta calculadora de rescisão trabalhista mostra, em tempo real,
+            uma estimativa detalhada de saldo de salário, aviso prévio, 13º,
+            férias e FGTS. Considera se foi justa causa e se você tinha
             carteira assinada.
           </p>
 
@@ -79,7 +79,7 @@ export function Hero() {
             </div>
           </div>
           <p className="mt-4 text-center text-xs text-white/40">
-            Exemplo ilustrativo — role até a calculadora para inserir seus dados
+            Exemplo ilustrativo. Role até a calculadora para inserir seus dados
           </p>
         </div>
       </div>

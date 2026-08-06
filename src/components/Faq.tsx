@@ -1,4 +1,9 @@
-const PERGUNTAS_PADRAO = [
+export const PERGUNTAS_PADRAO = [
+  {
+    pergunta: "Essa calculadora de rescisão trabalhista é grátis e online?",
+    resposta:
+      "Sim, é totalmente gratuita, não exige cadastro e roda direto no navegador, incluindo o cálculo do FGTS e da multa de 40%.",
+  },
   {
     pergunta: "Esse valor é exatamente o que vou receber?",
     resposta:
@@ -7,7 +12,7 @@ const PERGUNTAS_PADRAO = [
   {
     pergunta: "E se eu nunca tive carteira assinada?",
     resposta:
-      "Sem registro formal, os valores só se tornam exigíveis depois do reconhecimento do vínculo empregatício pela Justiça do Trabalho. Mostramos a estimativa considerando esse reconhecimento, mas o caminho para receber é diferente — vale procurar orientação jurídica.",
+      "Sem registro formal, os valores só se tornam exigíveis depois do reconhecimento do vínculo empregatício pela Justiça do Trabalho. Mostramos a estimativa considerando esse reconhecimento, mas o caminho para receber é diferente. Vale procurar orientação jurídica.",
   },
   {
     pergunta: "Por que a demissão por justa causa muda tanto o valor?",
@@ -17,7 +22,7 @@ const PERGUNTAS_PADRAO = [
   {
     pergunta: "Como o saldo do FGTS é calculado se eu não sei o valor exato?",
     resposta:
-      "Quando você não informa o saldo, estimamos 8% do salário por mês de contrato — uma aproximação, já que não considera reajustes salariais nem saques anteriores. O valor exato está disponível no aplicativo do FGTS.",
+      "Quando você não informa o saldo, estimamos 8% do salário por mês de contrato: uma aproximação, já que não considera reajustes salariais nem saques anteriores. O valor exato está disponível no aplicativo do FGTS.",
   },
   {
     pergunta: "Meus dados ficam salvos em algum lugar?",

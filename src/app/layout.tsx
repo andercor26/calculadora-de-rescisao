@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import { JsonLd } from "@/components/JsonLd";
+import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -20,10 +22,30 @@ const plexMono = IBM_Plex_Mono({
   weight: ["400", "500", "600"],
 });
 
+const DEFAULT_DESCRIPTION =
+  "Calculadoras trabalhistas grátis e online: rescisão, salário líquido, horas extras, férias, seguro-desemprego e FGTS, conforme a CLT.";
+
 export const metadata: Metadata = {
-  title: "Calculadora do Trabalhador — Estimativa de Rescisão Trabalhista",
-  description:
-    "Calcule uma estimativa da sua rescisão trabalhista em minutos: saldo de salário, aviso prévio, 13º, férias e FGTS, conforme a CLT.",
+  metadataBase: new URL(SITE_URL),
+  title: `${SITE_NAME} | Rescisão, Salário Líquido e Mais`,
+  description: DEFAULT_DESCRIPTION,
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: SITE_NAME,
+    description: DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: "pt_BR",
+    type: "website",
+  },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE_NAME,
+  url: SITE_URL,
+  inLanguage: "pt-BR",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -32,7 +54,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pt-BR"
       className={`${fraunces.variable} ${inter.variable} ${plexMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="min-h-full flex flex-col font-sans">
+        <JsonLd data={websiteSchema} />
+        {children}
+      </body>
     </html>
   );
 }

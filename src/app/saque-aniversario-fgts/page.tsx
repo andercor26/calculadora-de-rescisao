@@ -2,17 +2,28 @@ import type { Metadata } from "next";
 import { CalculadoraSaqueAniversario } from "@/components/calc/CalculadoraSaqueAniversario";
 import { PageHeader } from "@/components/calc/PageHeader";
 import { Faq } from "@/components/Faq";
+import { JsonLd } from "@/components/JsonLd";
 import { OutrasCalculadoras } from "@/components/OutrasCalculadoras";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { buildMetadata, faqSchema, webApplicationSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Saque-Aniversário vs. Saque-Rescisão do FGTS — Calculadora do Trabalhador",
-  description:
-    "Compare quanto você recebe por ano no saque-aniversário e quanto abre mão de sacar em uma eventual demissão sem justa causa.",
-};
+const TITLE = "Calculadora Saque-Aniversário FGTS";
+const DESCRICAO =
+  "Calcule o saque-aniversário do FGTS e compare com o saque-rescisão: veja quanto você recebe por ano e quanto abre mão de sacar numa demissão sem justa causa.";
+
+export const metadata: Metadata = buildMetadata({
+  title: TITLE,
+  description: DESCRICAO,
+  path: "/saque-aniversario-fgts",
+});
 
 const PERGUNTAS = [
+  {
+    pergunta: "Como calcular o saque-aniversário do FGTS?",
+    resposta:
+      "Aplica-se um percentual sobre o saldo total (de 5% a 50%, decrescente conforme o saldo aumenta) mais uma parcela fixa adicional nas faixas intermediárias. Esta calculadora já aplica as faixas oficiais da Lei 13.932/2019 a partir do saldo que você informar.",
+  },
   {
     pergunta: "Posso voltar para o saque-rescisão depois de escolher o aniversário?",
     resposta:
@@ -21,7 +32,7 @@ const PERGUNTAS = [
   {
     pergunta: "A multa de 40% também é afetada pela escolha?",
     resposta:
-      "Não — a multa de 40% é sempre paga em dinheiro na demissão sem justa causa, independentemente da modalidade escolhida. A diferença está apenas no acesso ao saldo principal do FGTS.",
+      "Não. A multa de 40% é sempre paga em dinheiro na demissão sem justa causa, independentemente da modalidade escolhida. A diferença está apenas no acesso ao saldo principal do FGTS.",
   },
   {
     pergunta: "Quando o saque-aniversário costuma valer mais a pena?",
@@ -33,6 +44,10 @@ const PERGUNTAS = [
 export default function SaqueAniversarioPage() {
   return (
     <>
+      <JsonLd data={faqSchema(PERGUNTAS)} />
+      <JsonLd
+        data={webApplicationSchema({ name: TITLE, description: DESCRICAO, path: "/saque-aniversario-fgts" })}
+      />
       <SiteHeader />
       <main>
         <PageHeader

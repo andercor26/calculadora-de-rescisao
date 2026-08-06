@@ -64,7 +64,7 @@ export function CalculadoraSaqueAniversario() {
                   <strong className="text-red-600">
                     {formatBRL(resultado.diferencaSeDemitido)}
                   </strong>{" "}
-                  de imediato caso seja demitido(a) sem justa causa — esse
+                  de imediato caso seja demitido(a) sem justa causa. Esse
                   valor fica retido, sacável apenas nos aniversários
                   seguintes, mesmo se você não estiver mais empregado(a).
                 </p>

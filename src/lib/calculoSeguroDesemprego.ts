@@ -1,5 +1,5 @@
 // Cálculo estimado do seguro-desemprego (Lei 7.998/1990, Lei 13.134/2015 e Resolução CODEFAT).
-// Tabela de valores de referência: 2024 — reajustada anualmente pelo governo.
+// Tabela de valores de referência: 2024, reajustada anualmente pelo governo.
 
 export type NumeroSolicitacao = "1" | "2" | "3+";
 
@@ -58,7 +58,7 @@ export function calcularSeguroDesemprego(
   dados: DadosSeguroDesemprego
 ): ResultadoSeguroDesemprego {
   const avisos = [
-    "Tabela de referência 2024 (Resolução CODEFAT). Os valores são reajustados todo ano, geralmente em fevereiro — confirme o valor atualizado em gov.br/trabalho-e-emprego.",
+    "Tabela de referência 2024 (Resolução CODEFAT). Os valores são reajustados todo ano, geralmente em fevereiro. Confirme o valor atualizado em gov.br/trabalho-e-emprego.",
   ];
 
   if (!dados.elegivel) {

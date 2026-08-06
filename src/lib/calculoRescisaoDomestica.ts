@@ -1,5 +1,5 @@
 // Cálculo estimado de rescisão do(a) empregado(a) doméstico(a), conforme a LC 150/2015.
-// Trata-se de uma ESTIMATIVA para fins informativos — não substitui análise de um advogado trabalhista.
+// Trata-se de uma ESTIMATIVA para fins informativos. Não substitui análise de um advogado trabalhista.
 
 import {
   addDias,
@@ -153,11 +153,11 @@ export function calcularRescisaoDomestica(
     fgts.push({
       id: "indenizacao",
       label: "Indenização compensatória (3,2%, pela metade)",
-      detalhe: "Estimativa por analogia ao acordo mútuo da CLT — confirme com um advogado",
+      detalhe: "Estimativa por analogia ao acordo mútuo da CLT (confirme com um advogado)",
       valor: indenizacaoCompensatoria * 0.5,
     });
     avisos.push(
-      "A LC 150/2015 não trata explicitamente do acordo mútuo (art. 484-A da CLT) para domésticos — este valor é uma estimativa por analogia e merece confirmação profissional."
+      "A LC 150/2015 não trata explicitamente do acordo mútuo (art. 484-A da CLT) para domésticos. Este valor é uma estimativa por analogia e merece confirmação profissional."
     );
   } else {
     avisos.push(
@@ -167,7 +167,7 @@ export function calcularRescisaoDomestica(
 
   if (dados.tipoDemissao === "sem_justa_causa") {
     avisos.push(
-      "Se você trabalhou pelo menos 15 dos últimos 24 meses, também tem direito a até 3 parcelas de seguro-desemprego no valor de 1 salário mínimo cada — regra específica para domésticos, diferente da calculadora geral de seguro-desemprego."
+      "Se você trabalhou pelo menos 15 dos últimos 24 meses, também tem direito a até 3 parcelas de seguro-desemprego no valor de 1 salário mínimo cada (regra específica para domésticos, diferente da calculadora geral de seguro-desemprego)."
     );
   }
 

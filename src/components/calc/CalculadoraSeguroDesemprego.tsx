@@ -44,7 +44,7 @@ export function CalculadoraSeguroDesemprego() {
             Simule seu seguro-desemprego
           </h2>
           <p className="mt-3 text-ink-muted">
-            O cálculo acontece no seu navegador — nenhuma informação é
+            O cálculo acontece no seu navegador. Nenhuma informação é
             enviada ou armazenada.
           </p>
         </div>

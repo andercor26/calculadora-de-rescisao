@@ -32,7 +32,7 @@ export function calcularSaqueAniversario(
   const saldo = Math.max(0, dados.saldoFgts || 0);
 
   const avisos = [
-    "Ao optar pelo saque-aniversário, é preciso avisar com 2 meses de antecedência para voltar ao saque-rescisão — a mudança não é imediata.",
+    "Ao optar pelo saque-aniversário, é preciso avisar com 2 meses de antecedência para voltar ao saque-rescisão. A mudança não é imediata.",
   ];
 
   if (saldo <= 0) {

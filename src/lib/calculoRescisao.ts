@@ -1,5 +1,5 @@
 // Cálculo estimado de rescisão trabalhista (CLT) conforme regras gerais da legislação brasileira.
-// Trata-se de uma ESTIMATIVA para fins informativos — não substitui análise de um advogado trabalhista.
+// Trata-se de uma ESTIMATIVA para fins informativos. Não substitui análise de um advogado trabalhista.
 
 import {
   addDias,
@@ -78,7 +78,7 @@ export function calcularRescisao(dados: DadosRescisao): ResultadoRescisao {
 
   if (!dados.registrado) {
     avisos.push(
-      "Você marcou que não tinha carteira assinada. Sem registro formal, esses valores só são devidos após o reconhecimento do vínculo empregatício na Justiça do Trabalho — o cálculo abaixo mostra uma estimativa do que seria devido nesse cenário."
+      "Você marcou que não tinha carteira assinada. Sem registro formal, esses valores só são devidos após o reconhecimento do vínculo empregatício na Justiça do Trabalho. O cálculo abaixo mostra uma estimativa do que seria devido nesse cenário."
     );
   }
 

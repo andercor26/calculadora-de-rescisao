@@ -20,7 +20,7 @@ export function ReciboCard({
   total,
   avisos = [],
   vazio,
-  disclaimer = "Estimativa educativa — não substitui a orientação de um profissional especializado.",
+  disclaimer = "Estimativa educativa. Não substitui a orientação de um profissional especializado.",
 }: {
   rotulo?: string;
   estampa?: string;

@@ -21,7 +21,7 @@ const VERBAS = [
   },
   {
     titulo: "Justa causa x sem justa causa",
-    texto: "O motivo do desligamento muda quais verbas são devidas — a calculadora ajusta isso automaticamente.",
+    texto: "O motivo do desligamento muda quais verbas são devidas. A calculadora ajusta isso automaticamente.",
   },
 ];
 
