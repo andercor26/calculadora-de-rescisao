@@ -1,4 +1,4 @@
-const PERGUNTAS = [
+const PERGUNTAS_PADRAO = [
   {
     pergunta: "Esse valor é exatamente o que vou receber?",
     resposta:
@@ -26,7 +26,18 @@ const PERGUNTAS = [
   },
 ];
 
-export function Faq() {
+export interface Pergunta {
+  pergunta: string;
+  resposta: string;
+}
+
+export function Faq({
+  perguntas = PERGUNTAS_PADRAO,
+  titulo = "Antes de continuar",
+}: {
+  perguntas?: Pergunta[];
+  titulo?: string;
+}) {
   return (
     <section id="duvidas" className="bg-paper-muted py-20 md:py-28">
       <div className="mx-auto max-w-3xl px-6">
@@ -34,11 +45,11 @@ export function Faq() {
           Dúvidas frequentes
         </span>
         <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-navy-950 sm:text-4xl">
-          Antes de continuar
+          {titulo}
         </h2>
 
         <div className="mt-10 divide-y divide-line border-t border-line">
-          {PERGUNTAS.map((item) => (
+          {perguntas.map((item) => (
             <details key={item.pergunta} className="group py-5">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-base font-semibold text-navy-950">
                 {item.pergunta}

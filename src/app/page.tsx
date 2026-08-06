@@ -2,6 +2,7 @@ import { Calculadora } from "@/components/Calculadora";
 import { Diferenciais } from "@/components/Diferenciais";
 import { Faq } from "@/components/Faq";
 import { Hero } from "@/components/Hero";
+import { OutrasCalculadoras } from "@/components/OutrasCalculadoras";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { VerbasGrid } from "@/components/VerbasGrid";
@@ -16,6 +17,7 @@ export default function Home() {
         <VerbasGrid />
         <Diferenciais />
         <Faq />
+        <OutrasCalculadoras atual="/" />
       </main>
       <SiteFooter />
     </>

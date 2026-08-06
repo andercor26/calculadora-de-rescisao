@@ -1,8 +1,11 @@
+import Link from "next/link";
+import { CALCULADORAS } from "@/lib/calculadoras";
+
 export function SiteFooter() {
   return (
     <footer className="border-t border-white/10 bg-navy-950 py-12 text-white/60">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <div className="flex items-center gap-2">
               <span className="inline-block h-2.5 w-2.5 rounded-full bg-red-600" />
@@ -11,21 +14,17 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="mt-2 max-w-sm text-sm leading-relaxed">
-              Ferramenta educativa e gratuita para estimar verbas rescisórias
-              conforme as regras gerais da CLT.
+              Ferramentas educativas e gratuitas para estimar direitos
+              trabalhistas conforme as regras gerais da CLT.
             </p>
           </div>
 
-          <nav className="flex gap-6 text-sm">
-            <a href="#verbas" className="hover:text-white">
-              O que é calculado
-            </a>
-            <a href="#calculadora" className="hover:text-white">
-              Calculadora
-            </a>
-            <a href="#duvidas" className="hover:text-white">
-              Dúvidas
-            </a>
+          <nav className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
+            {CALCULADORAS.map((c) => (
+              <Link key={c.slug} href={c.slug} className="hover:text-white">
+                {c.tituloCurto}
+              </Link>
+            ))}
           </nav>
         </div>
 

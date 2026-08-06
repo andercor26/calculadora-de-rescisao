@@ -1,26 +1,32 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { calcularRescisao, type DadosRescisao, type SituacaoAviso, type TipoDemissao } from "@/lib/calculoRescisao";
+import {
+  calcularRescisaoDomestica,
+  type DadosRescisaoDomestica,
+} from "@/lib/calculoRescisaoDomestica";
+import type { SituacaoAviso, TipoDemissao } from "@/lib/calculoRescisao";
 import { AVISO_OPCOES, ESTAMPA_TIPO_DEMISSAO, TIPOS_DEMISSAO } from "@/lib/opcoesRescisao";
 import { ReciboCard } from "@/components/calc/ReciboCard";
 import { ToggleGroup } from "@/components/calc/ToggleGroup";
 import { inputClass, labelClass } from "@/components/calc/estilos";
 
-export function Calculadora() {
-  const [dados, setDados] = useState<DadosRescisao>({
+export function CalculadoraRescisaoDomestica() {
+  const [dados, setDados] = useState<DadosRescisaoDomestica>({
     salarioBruto: 0,
     dataAdmissao: "",
     dataDemissao: "",
     tipoDemissao: "sem_justa_causa",
     situacaoAviso: "indenizado",
-    registrado: true,
     periodosFeriasVencidas: 0,
   });
 
-  const resultado = useMemo(() => calcularRescisao(dados), [dados]);
+  const resultado = useMemo(() => calcularRescisaoDomestica(dados), [dados]);
 
-  function atualizar<K extends keyof DadosRescisao>(chave: K, valor: DadosRescisao[K]) {
+  function atualizar<K extends keyof DadosRescisaoDomestica>(
+    chave: K,
+    valor: DadosRescisaoDomestica[K]
+  ) {
     setDados((atual) => ({ ...atual, [chave]: valor }));
   }
 
@@ -41,12 +47,12 @@ export function Calculadora() {
             Calculadora
           </span>
           <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-navy-950 sm:text-4xl">
-            Simule sua rescisão agora
+            Simule a rescisão doméstica
           </h2>
           <p className="mt-3 text-ink-muted">
-            Os valores são recalculados a cada campo preenchido. Nenhuma
-            informação é enviada ou armazenada — o cálculo acontece no seu
-            navegador.
+            Considera as regras específicas da LC 150/2015, incluindo o
+            fundo de indenização compensatória que substitui a multa de
+            40% do FGTS.
           </p>
         </div>
 
@@ -97,18 +103,6 @@ export function Calculadora() {
             </div>
 
             <div>
-              <span className={labelClass}>Carteira assinada?</span>
-              <ToggleGroup
-                opcoes={[
-                  { valor: "sim", label: "Sim, registrado" },
-                  { valor: "nao", label: "Não, sem registro" },
-                ]}
-                valor={dados.registrado ? "sim" : "nao"}
-                onChange={(v) => atualizar("registrado", v === "sim")}
-              />
-            </div>
-
-            <div>
               <span className={labelClass}>Motivo do desligamento</span>
               <ToggleGroup
                 opcoes={TIPOS_DEMISSAO.map((t) => ({ valor: t.value, label: t.label }))}
@@ -156,7 +150,7 @@ export function Calculadora() {
           </form>
 
           <ReciboCard
-            rotulo="Recibo estimativo de rescisão"
+            rotulo="Recibo estimativo de rescisão doméstica"
             estampa={ESTAMPA_TIPO_DEMISSAO[dados.tipoDemissao]}
             grupos={[
               { itens: resultado.itens },

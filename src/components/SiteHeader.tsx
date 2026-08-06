@@ -1,23 +1,25 @@
+import Link from "next/link";
+
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#topo" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <span className="inline-block h-2.5 w-2.5 rounded-full bg-red-600" />
           <span className="font-display text-lg font-semibold tracking-tight text-navy-950">
             Calculadora do Trabalhador
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 text-sm text-ink-muted md:flex">
-          <a href="#verbas" className="hover:text-navy-950">
-            O que é calculado
-          </a>
           <a href="#calculadora" className="hover:text-navy-950">
             Calculadora
           </a>
           <a href="#duvidas" className="hover:text-navy-950">
             Dúvidas
+          </a>
+          <a href="#outras" className="hover:text-navy-950">
+            Outras calculadoras
           </a>
         </nav>
 
