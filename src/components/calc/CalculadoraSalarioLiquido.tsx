@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { calcularSalarioLiquido, type DadosSalarioLiquido } from "@/lib/calculoSalarioLiquido";
+import { formatBRL } from "@/lib/format";
 import { ReciboCard } from "@/components/calc/ReciboCard";
 import { inputClass, labelClass } from "@/components/calc/estilos";
 
@@ -34,6 +35,7 @@ export function CalculadoraSalarioLiquido() {
             Do bruto ao líquido
           </h2>
           <p className="mt-3 text-ink-muted">
+            Já considera a isenção de IRRF até R$ 5.000 da Lei 15.270/2025.
             Descontamos INSS e IRRF automaticamente, usando sempre o método
             que resulta no menor imposto.
           </p>
@@ -122,10 +124,16 @@ export function CalculadoraSalarioLiquido() {
                       {
                         id: "irrf",
                         label: "IRRF",
-                        detalhe:
+                        detalhe: [
                           resultado.metodoIRRF === "simplificado"
                             ? "Desconto simplificado (mais vantajoso)"
                             : "Com dedução por dependentes",
+                          resultado.redutorIRRF > 0
+                            ? `já com redução de ${formatBRL(resultado.redutorIRRF)} da Lei 15.270/2025`
+                            : null,
+                        ]
+                          .filter(Boolean)
+                          .join(" — "),
                         valor: resultado.descontoIRRF,
                         negativo: true,
                       },

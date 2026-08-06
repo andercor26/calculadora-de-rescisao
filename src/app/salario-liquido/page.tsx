@@ -9,10 +9,15 @@ import { SiteHeader } from "@/components/SiteHeader";
 export const metadata: Metadata = {
   title: "Calculadora de Salário Líquido — Calculadora do Trabalhador",
   description:
-    "Calcule o salário líquido a partir do bruto, com desconto de INSS e IRRF conforme as tabelas vigentes.",
+    "Calcule o salário líquido a partir do bruto, com desconto de INSS e IRRF, já considerando a isenção até R$ 5.000 da Lei 15.270/2025.",
 };
 
 const PERGUNTAS = [
+  {
+    pergunta: "É verdade que salários até R$ 5.000 ficam isentos de Imposto de Renda?",
+    resposta:
+      "Sim. A Lei 15.270/2025, em vigor desde janeiro de 2026, zera o IRRF para quem ganha até R$ 5.000 por mês. Entre R$ 5.000 e R$ 7.350 o imposto é reduzido gradualmente, até voltar à tabela normal acima desse valor. Esta calculadora já aplica essa regra.",
+  },
   {
     pergunta: "Como o INSS é descontado?",
     resposta:
