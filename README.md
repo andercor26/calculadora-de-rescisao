@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Recibo Certo — Calculadora de Rescisão Trabalhista
 
-## Getting Started
+Landing page com uma calculadora de rescisão trabalhista (CLT) para
+trabalhadores brasileiros. O usuário preenche salário, datas de
+admissão/demissão, tipo de desligamento (sem justa causa, pedido de
+demissão, justa causa ou acordo mútuo) e se tinha carteira assinada, e
+recebe uma estimativa detalhada em formato de recibo: saldo de
+salário, aviso prévio, 13º proporcional, férias + 1/3 e FGTS + multa.
 
-First, run the development server:
+Todo o cálculo roda no navegador (client-side) — nenhum dado é
+enviado a um servidor.
+
+⚠️ Os valores são **estimativas educativas** baseadas nas regras
+gerais da CLT e não substituem orientação de um advogado trabalhista.
+
+## Stack
+
+- [Next.js](https://nextjs.org) (App Router) + TypeScript
+- [Tailwind CSS v4](https://tailwindcss.com)
+- Fontes via `next/font`: Fraunces (display), Inter (texto), IBM Plex
+  Mono (números do recibo)
+
+## Desenvolvimento
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/lib/calculoRescisao.ts` — lógica pura do cálculo das verbas
+  rescisórias
+- `src/components/Calculadora.tsx` — formulário e recibo ao vivo
+- `src/components/` — demais seções da landing page
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Projeto pronto para deploy na [Vercel](https://vercel.com/new): basta
+importar o repositório, sem variáveis de ambiente necessárias.
