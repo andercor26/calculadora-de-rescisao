@@ -53,7 +53,6 @@ export function Calculadora() {
     situacaoAviso: "indenizado",
     registrado: true,
     periodosFeriasVencidas: 0,
-    saldoFgtsInformado: null,
   });
 
   const resultado = useMemo(() => calcularRescisao(dados), [dados]);
@@ -201,45 +200,22 @@ export function Calculadora() {
               </p>
             )}
 
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className={labelClass} htmlFor="ferias">
-                  Períodos de férias vencidas
-                </label>
-                <select
-                  id="ferias"
-                  className={inputClass}
-                  value={dados.periodosFeriasVencidas}
-                  onChange={(e) => atualizar("periodosFeriasVencidas", Number(e.target.value))}
-                >
-                  {[0, 1, 2, 3].map((n) => (
-                    <option key={n} value={n}>
-                      {n === 0 ? "Nenhum" : n}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label className={labelClass} htmlFor="fgts">
-                  Saldo do FGTS (opcional)
-                </label>
-                <input
-                  id="fgts"
-                  type="number"
-                  min={0}
-                  step="0.01"
-                  inputMode="decimal"
-                  placeholder="Estimamos por você"
-                  className={inputClass}
-                  value={dados.saldoFgtsInformado ?? ""}
-                  onChange={(e) =>
-                    atualizar(
-                      "saldoFgtsInformado",
-                      e.target.value === "" ? null : Number(e.target.value)
-                    )
-                  }
-                />
-              </div>
+            <div>
+              <label className={labelClass} htmlFor="ferias">
+                Períodos de férias vencidas
+              </label>
+              <select
+                id="ferias"
+                className={inputClass}
+                value={dados.periodosFeriasVencidas}
+                onChange={(e) => atualizar("periodosFeriasVencidas", Number(e.target.value))}
+              >
+                {[0, 1, 2, 3].map((n) => (
+                  <option key={n} value={n}>
+                    {n === 0 ? "Nenhum" : n}
+                  </option>
+                ))}
+              </select>
             </div>
           </form>
 

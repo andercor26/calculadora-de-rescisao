@@ -21,7 +21,6 @@ export interface DadosRescisao {
   situacaoAviso: SituacaoAviso;
   registrado: boolean;
   periodosFeriasVencidas: number;
-  saldoFgtsInformado: number | null;
 }
 
 export interface ItemRescisao {
@@ -232,13 +231,12 @@ export function calcularRescisao(dados: DadosRescisao): ResultadoRescisao {
 
   // 6. FGTS
   const mesesContrato = Math.max(1, Math.round(diffDias(admissao, dataProjecao) / 30.4375));
-  const fgtsEstimado = dados.saldoFgtsInformado != null ? dados.saldoFgtsInformado : 0.08 * salario * mesesContrato;
-  const origemFgts = dados.saldoFgtsInformado != null ? "Valor informado por você" : `Estimativa: 8% × salário × ${mesesContrato} meses de contrato`;
+  const fgtsEstimado = 0.08 * salario * mesesContrato;
 
   fgts.push({
     id: "fgts_saldo",
     label: "Saldo do FGTS disponível",
-    detalhe: origemFgts,
+    detalhe: `Estimativa: 8% × salário × ${mesesContrato} meses de contrato`,
     valor: dados.tipoDemissao === "justa_causa" || dados.tipoDemissao === "pedido_demissao" ? 0 : fgtsEstimado,
   });
 
@@ -267,9 +265,7 @@ export function calcularRescisao(dados: DadosRescisao): ResultadoRescisao {
     avisos.push("No pedido de demissão não há multa do FGTS nem saque do saldo, e não há direito ao seguro-desemprego.");
   }
 
-  if (dados.saldoFgtsInformado == null) {
-    avisos.push("O saldo do FGTS foi estimado de forma simplificada (8% do salário por mês de contrato). Consulte o app FGTS para o valor exato.");
-  }
+  avisos.push("O saldo do FGTS foi estimado de forma simplificada (8% do salário por mês de contrato). Consulte o app FGTS para o valor exato.");
 
   const totalVerbas = itens.reduce((s, i) => s + i.valor, 0);
   const totalDescontos = descontos.reduce((s, i) => s + i.valor, 0);
