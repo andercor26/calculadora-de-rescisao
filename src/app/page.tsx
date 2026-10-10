@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Calculadora } from "@/components/Calculadora";
-import { Diferenciais } from "@/components/Diferenciais";
 import { Faq, PERGUNTAS_PADRAO } from "@/components/Faq";
 import { Hero } from "@/components/Hero";
 import { JsonLd } from "@/components/JsonLd";
@@ -30,9 +29,8 @@ export default function Home() {
         <Hero />
         <Calculadora />
         <VerbasGrid />
-        <Diferenciais />
-        <Faq />
         <OutrasCalculadoras atual="/" />
+        <Faq />
       </main>
       <SiteFooter />
     </>

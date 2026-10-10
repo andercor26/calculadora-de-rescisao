@@ -25,6 +25,13 @@ const VERBAS = [
   },
 ];
 
+const DIFERENCIAIS = [
+  { titulo: "Baseado na CLT", texto: "Regras gerais da CLT e da Lei 12.506/2011." },
+  { titulo: "Cálculo instantâneo", texto: "O recibo atualiza a cada campo preenchido." },
+  { titulo: "Sem cadastro", texto: "Tudo é calculado no seu navegador, sem enviar dados." },
+  { titulo: "Estimativa clara", texto: "Cada verba é mostrada separadamente." },
+];
+
 export function VerbasGrid() {
   return (
     <section id="verbas" className="bg-navy-950 py-20 text-white md:py-28">
@@ -53,6 +60,15 @@ export function VerbasGrid() {
             </div>
           ))}
         </div>
+
+        <ul className="mt-12 grid gap-x-8 gap-y-4 border-t border-white/10 pt-8 text-sm text-white/50 sm:grid-cols-2 lg:grid-cols-4">
+          {DIFERENCIAIS.map((d) => (
+            <li key={d.titulo}>
+              <span className="font-medium text-white/80">{d.titulo}.</span>{" "}
+              {d.texto}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
